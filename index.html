@@ -3,86 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Brother ⚔️</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616490.png" type="image/x-icon">
+    <title>⚠️ System Intrustion Detected</title>
     <style>
-        body { background-color: #050505; color: #00ff41; font-family: 'Courier New', Courier, monospace; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden; }
-        .bubble-card { background: rgba(20, 20, 20, 0.9); border-radius: 15px; padding: 25px; margin: 15px 10px; width: 85%; max-width: 450px; border: 1px solid #00ff41; text-align: center; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); animation: fadeIn 0.5s ease-in; }
-        input { padding: 12px; border-radius: 5px; border: 1px solid #00ff41; background: #000; color: #00ff41; text-align: center; width: 80%; outline: none; margin-bottom: 20px; font-size: 1.1rem; }
-        button { padding: 12px 30px; background: #00ff41; color: #000; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
-        button:hover { background: #008f11; color: #fff; box-shadow: 0 0 20px #00ff41; }
-        img { width: 100%; border-radius: 10px; margin: 15px 0; border: 1px solid #00ff41; filter: grayscale(50%); }
-        #lock-screen, #loading-screen, #main-content { display: none; flex-direction: column; align-items: center; width: 100%; }
-        #lock-screen { display: flex; height: 100vh; justify-content: center; }
-        .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.1; }
-        h1 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        body { background-color: #000; color: #0f0; font-family: 'Courier New', monospace; margin: 0; overflow: hidden; user-select: none; }
+        
+        /* تأثير اهتزاز الشاشة */
+        .glitch { animation: shake 0.2s infinite; }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            20% { transform: translate(-1px, -2px) rotate(-1deg); }
+            50% { transform: translate(-3px, 0px) rotate(1deg); }
+            100% { transform: translate(1px, -1px) rotate(0deg); }
+        }
+
+        #terminal { padding: 20px; font-size: 14px; height: 100vh; display: none; overflow-y: hidden; background: #000; }
+        .red { color: #ff0000; font-weight: bold; text-shadow: 0 0 5px red; }
+        .blink { animation: blinker 0.2s linear infinite; color: red; font-size: 1.5rem; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        #lock-screen { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; text-align: center; border: 5px solid red; box-sizing: border-box; }
+        input { background: #000; border: 1px solid #0f0; color: #0f0; padding: 12px; margin-top: 15px; text-align: center; outline: none; width: 200px; }
+        button { background: #f00; color: #fff; border: none; padding: 12px 25px; margin-top: 25px; cursor: pointer; font-weight: bold; border-radius: 5px; }
+
+        .bubble-card { background: rgba(20, 20, 20, 0.95); border-radius: 20px; padding: 25px; margin: 20px auto; width: 85%; max-width: 450px; border: 1px solid #0f0; text-align: center; }
+        img { width: 100%; border-radius: 10px; border: 1px solid #0f0; margin-top: 15px; }
+        #main-content { display: none; overflow-y: auto; height: 100vh; padding: 20px 0; background: #050505; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
+    <audio id="siren" loop>
+        <source src="https://www.soundjay.com/buttons/beep-01a.mp3" type="audio/mpeg">
+    </audio>
+
     <div id="lock-screen">
-        <div class="bubble-card">
-            <h1>Access Denied 🔒</h1>
-            <p>أدخل كود المرور يا زميلي</p>
-            <input type="password" id="passInput" placeholder="Enter PIN...">
-            <br>
-            <button onclick="checkUnlock()">Verify Identity</button>
-        </div>
+        <div class="blink">🛑 WARNING: MALWARE DETECTED 🛑</div>
+        <p style="font-size: 1.2rem; margin-top: 20px;">Remote Connection established from: <span id="user-ip">192.168.1.105</span></p>
+        <p>This device is locked due to security violation.</p>
+        <input type="password" id="passInput" placeholder="ENTER ADMIN KEY">
+        <button onclick="startHack()">RUN RECOVERY TOOL</button>
     </div>
 
-    <div id="loading-screen" style="height: 100vh; justify-content: center;">
-        <div class="bubble-card">
-            <h2 id="load-text">Initializing Exploit...</h2>
-            <div style="width: 100%; background: #222; height: 10px; border-radius: 5px; margin-top: 10px;">
-                <div id="progress" style="width: 0%; background: #00ff41; height: 100%; border-radius: 5px; transition: 2s;"></div>
-            </div>
-        </div>
-    </div>
+    <div id="terminal"></div>
 
     <div id="main-content">
         <div class="bubble-card">
-            <h1>يا برنس الصحاب ❤️</h1>
-            <p>الرجولة مش كلام، الرجولة مواقف.. وإنت دايمًا سادد يا صاحبي.</p>
+            <h1 style="color: #0f0;">يا واد يا هاكر! 😂⚔️</h1>
+            <p>اتمسكت متلبس.. اوعى تكون كنت هتتصل بالشرطة؟</p>
+            <p>كل سنة وإنت طيب يا زميلي، حبيت أعملك "Pentest" سريع على أعصابك.</p>
         </div>
-
         <div class="bubble-card">
             <img src="bro.jpg" alt="صاحبي">
-            <p>أجدع واحد عرفته، ربنا يديم المحبة يا وحش ⚔️</p>
+            <p>الرجولة كلها في صورة واحدة ❤️</p>
         </div>
-
         <div class="bubble-card">
             <img src="friends.jpg" alt="إحنا سوا">
-            <p>ذكرياتنا مابتخلصش، والقادم أقوى بإذن الله.</p>
-        </div>
-
-        <div class="bubble-card" style="margin-bottom: 50px;">
-            <p>Website Secured by: Ammar Hossam 💻</p>
+            <p>By: Ammar Hossam Abdel Latif</p>
         </div>
     </div>
 
     <script>
-        function checkUnlock() {
+        // إظهار نوع المتصفح عشان يحس إن الكلام حقيقي
+        document.getElementById('user-ip').innerText = "IP: 41.235." + Math.floor(Math.random()*255) + "." + Math.floor(Math.random()*255);
+
+        const logs = [
+            "> Initializing Cyber-Sploit v4.2...",
+            "> Connection: SECURE",
+            "> Target: " + navigator.platform,
+            "> Cracking Root Privileges... [OK]",
+            "> Accessing Browser History...",
+            "> %cWARNING: Private Data Leak Detected!",
+            "> Uploading cookies to: ammar_server_01",
+            "> Stealing saved passwords... 12%.. 45%.. 89%..",
+            "> %cCRITICAL ERROR: KERNEL PANIC!",
+            "> Deleting Mobile Data Partition...",
+            "> Formatting Disk C:/...",
+            "> 3... 2... 1...",
+            "> LOL! CALM DOWN BRO! 😂"
+        ];
+
+        function startHack() {
             const pass = document.getElementById('passInput').value;
-            // اختار الباسورد اللي تحبه، هخليهولك 0000 مؤقتًا
             if (pass === "0000") {
                 document.getElementById('lock-screen').style.display = 'none';
-                document.getElementById('loading-screen').style.display = 'flex';
-                
-                // أنيميشن التحميل
-                setTimeout(() => { document.getElementById('progress').style.width = '100%'; }, 100);
-                setTimeout(() => { document.getElementById('load-text').innerText = 'Hacking Gallery...'; }, 1000);
-                setTimeout(() => { document.getElementById('load-text').innerText = 'Access Granted!'; }, 2500);
-
-                setTimeout(() => {
-                    document.getElementById('loading-screen').style.display = 'none';
-                    document.getElementById('main-content').style.display = 'flex';
-                }, 3500);
+                document.getElementById('terminal').style.display = 'block';
+                document.body.classList.add('glitch'); // بدأ الاهتزاز
+                document.getElementById('siren').play(); // بدأ الصوت
+                runTerminal(0);
             } else {
-                alert("إنت مين يا عم؟ الباسورد غلط! 😂");
+                alert("ACCESS DENIED! Admin key is incorrect.");
             }
         }
 
-        console.log("%cStop! System is monitoring you... - Ammar", "color: #00ff41; font-size: 20px; font-weight: bold;");
+        function runTerminal(step) {
+            if (step < logs.length) {
+                const line = document.createElement('div');
+                let currentLog = logs[step];
+                
+                if (currentLog.includes("%c")) {
+                    currentLog = currentLog.replace("%c", "");
+                    line.className = "red";
+                }
+
+                line.innerHTML = currentLog;
+                document.getElementById('terminal').appendChild(line);
+                
+                // التدرج في السرعة
+                setTimeout(() => runTerminal(step + 1), 600);
+            } else {
+                setTimeout(showSecret, 2000);
+            }
+        }
+
+        function showSecret() {
+            document.body.classList.remove('glitch');
+            document.getElementById('siren').pause();
+            document.getElementById('terminal').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.body.style.overflowY = "auto";
+            alert("تعيش وتأخد غيرها يا وحش! 😂⚔️");
+        }
     </script>
 </body>
 </html>
