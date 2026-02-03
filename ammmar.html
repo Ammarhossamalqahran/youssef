@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Brother ⚔️</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/616/616490.png" type="image/x-icon">
+    <style>
+        body { background-color: #050505; color: #00ff41; font-family: 'Courier New', Courier, monospace; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        .bubble-card { background: rgba(20, 20, 20, 0.9); border-radius: 15px; padding: 25px; margin: 15px 10px; width: 85%; max-width: 450px; border: 1px solid #00ff41; text-align: center; box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); animation: fadeIn 0.5s ease-in; }
+        input { padding: 12px; border-radius: 5px; border: 1px solid #00ff41; background: #000; color: #00ff41; text-align: center; width: 80%; outline: none; margin-bottom: 20px; font-size: 1.1rem; }
+        button { padding: 12px 30px; background: #00ff41; color: #000; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
+        button:hover { background: #008f11; color: #fff; box-shadow: 0 0 20px #00ff41; }
+        img { width: 100%; border-radius: 10px; margin: 15px 0; border: 1px solid #00ff41; filter: grayscale(50%); }
+        #lock-screen, #loading-screen, #main-content { display: none; flex-direction: column; align-items: center; width: 100%; }
+        #lock-screen { display: flex; height: 100vh; justify-content: center; }
+        .matrix-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.1; }
+        h1 { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="lock-screen">
+        <div class="bubble-card">
+            <h1>Access Denied 🔒</h1>
+            <p>أدخل كود المرور يا زميلي</p>
+            <input type="password" id="passInput" placeholder="Enter PIN...">
+            <br>
+            <button onclick="checkUnlock()">Verify Identity</button>
+        </div>
+    </div>
+
+    <div id="loading-screen" style="height: 100vh; justify-content: center;">
+        <div class="bubble-card">
+            <h2 id="load-text">Initializing Exploit...</h2>
+            <div style="width: 100%; background: #222; height: 10px; border-radius: 5px; margin-top: 10px;">
+                <div id="progress" style="width: 0%; background: #00ff41; height: 100%; border-radius: 5px; transition: 2s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="bubble-card">
+            <h1>يا برنس الصحاب ❤️</h1>
+            <p>الرجولة مش كلام، الرجولة مواقف.. وإنت دايمًا سادد يا صاحبي.</p>
+        </div>
+
+        <div class="bubble-card">
+            <img src="bro.jpg" alt="صاحبي">
+            <p>أجدع واحد عرفته، ربنا يديم المحبة يا وحش ⚔️</p>
+        </div>
+
+        <div class="bubble-card">
+            <img src="friends.jpg" alt="إحنا سوا">
+            <p>ذكرياتنا مابتخلصش، والقادم أقوى بإذن الله.</p>
+        </div>
+
+        <div class="bubble-card" style="margin-bottom: 50px;">
+            <p>Website Secured by: Ammar Hossam 💻</p>
+        </div>
+    </div>
+
+    <script>
+        function checkUnlock() {
+            const pass = document.getElementById('passInput').value;
+            // اختار الباسورد اللي تحبه، هخليهولك 0000 مؤقتًا
+            if (pass === "0000") {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('loading-screen').style.display = 'flex';
+                
+                // أنيميشن التحميل
+                setTimeout(() => { document.getElementById('progress').style.width = '100%'; }, 100);
+                setTimeout(() => { document.getElementById('load-text').innerText = 'Hacking Gallery...'; }, 1000);
+                setTimeout(() => { document.getElementById('load-text').innerText = 'Access Granted!'; }, 2500);
+
+                setTimeout(() => {
+                    document.getElementById('loading-screen').style.display = 'none';
+                    document.getElementById('main-content').style.display = 'flex';
+                }, 3500);
+            } else {
+                alert("إنت مين يا عم؟ الباسورد غلط! 😂");
+            }
+        }
+
+        console.log("%cStop! System is monitoring you... - Ammar", "color: #00ff41; font-size: 20px; font-weight: bold;");
+    </script>
+</body>
+</html>
